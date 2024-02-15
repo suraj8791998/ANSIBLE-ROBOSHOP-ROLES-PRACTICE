@@ -1,0 +1,7 @@
+  - name: SETTING UP NODEJS
+    ansible.builtin.shell:  curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+  - name: INSTALLING NODEJS APPLICATION
+    ansible.builtin.yum:
+      name: nodejs 
+      state: present

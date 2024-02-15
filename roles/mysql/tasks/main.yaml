@@ -1,0 +1,22 @@
+- name: DISABLING MYSQL SERVICE
+  ansible.builtin.command: yum module disable mysql -y 
+
+- name: COPYING MYSQL REPO
+  ansible.builtin.copy:
+    src: mysql.repo
+    dest: /etc/yum.repos.d/mysql.repo
+
+- name: INSTALLING MYSQL SERVER
+  ansible.builtin.yum:
+    name: mysql-community-server
+    state: latest
+
+- name: ENABLING AND STARTING MY SQL SEREVER
+  ansible.builtin.service:
+    name: mysqld
+    state: started
+    enabled: true
+
+- name: CHANGING DEFAULT ROOT PASSWORD 
+  ansible.builtin.command: mysql_secure_installation --set-root-pass RoboShop@1
+  

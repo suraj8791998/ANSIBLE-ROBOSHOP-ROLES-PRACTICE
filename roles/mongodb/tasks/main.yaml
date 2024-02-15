@@ -1,0 +1,26 @@
+- name: COPYING MONGO.YAML
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: INSTALLING MONGODB ORG
+  ansible.builtin.yum:
+    name: mongodb-org
+    state: latest
+
+- name: STARTING THE SERVICE
+  ansible.builtin.service:
+    name: mongod
+    state: started
+    enabled: yes
+
+- name: REPLACING THE PORT ADDRESS
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1' #CONTENT SHOULD BE REPLACED HERE
+    replace: '0.0.0.0'  
+
+- name: RESTARTING THE SERVICE
+  ansible.builtin.service:
+    name: mongod
+    state: restarted

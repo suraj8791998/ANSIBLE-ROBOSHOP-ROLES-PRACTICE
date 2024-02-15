@@ -1,0 +1,42 @@
+##DATA BASE TIER
+
+[mongodb]
+172.31.90.157
+
+[redis]
+reddis.suraj.website
+
+[mysql]
+mysql.suraj.website
+
+[rabbitmq]
+rabbitmq.suraj.website
+
+##API TIER
+
+[catalogue]
+catalogue.suraj.website
+
+[cart]
+cart.suraj.website
+
+[user]
+user.suraj.website
+
+[shipping]
+shipping.suraj.website
+
+[payments]
+payments.suraj.website
+
+##FRONTENED TIER
+
+[web]
+web.suraj.website
+
+[db:children]
+mongodb
+redis
+mysql
+rabbitmq
+

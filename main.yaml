@@ -1,7 +1,7 @@
-- namne: DEVELOPING ROBOSHOP APPLICATION THROIGH ANSIBLE ROLES
+- name: DEVELOPING ROBOSHOP APPLICATION THROIGH ANSIBLE ROLES
   hosts: "{{component}}"
   become: yes
+  
   roles:
-
   - "{{component}}"
   
